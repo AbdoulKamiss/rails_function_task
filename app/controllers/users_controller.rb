@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
       UserMailer.with(to: @user.email, name: @user.name).welcome.deliver_later(wait: 30.seconds)
-      redirect_to user_path(@user.id), notice: 'Account was successfully created.'
+      redirect_to user_path(@user.id), notice: 'アカウントを登録しました。'
     else
       render :new
     end
